@@ -1,0 +1,8 @@
+prefix=/home/xiaoc/xiaoc/code/ros_practice/devel
+
+Name: cpp_class_communication
+Description: Description of cpp_class_communication
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

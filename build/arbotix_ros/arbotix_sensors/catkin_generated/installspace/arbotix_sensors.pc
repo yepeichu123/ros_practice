@@ -1,0 +1,8 @@
+prefix=/home/xiaoc/xiaoc/code/ros_practice/install
+
+Name: arbotix_sensors
+Description: Description of arbotix_sensors
+Version: 0.10.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

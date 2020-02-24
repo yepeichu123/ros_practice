@@ -1,0 +1,8 @@
+prefix=/home/xiaoc/xiaoc/code/ros_practice/devel
+
+Name: learning_communication
+Description: Description of learning_communication
+Version: 0.0.0
+Cflags: -I/home/xiaoc/xiaoc/code/ros_practice/devel/include
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy std_msgs message_runtime

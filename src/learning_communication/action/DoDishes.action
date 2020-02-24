@@ -1,0 +1,9 @@
+# 定义目标信息
+uint32 dishwasher_id
+# 指定我们想要使用的洗碗工
+---
+# 定义结果信息
+uint32 total_dishes_clearned
+---
+# 定义周期反馈的消息
+float32 percent_complete
