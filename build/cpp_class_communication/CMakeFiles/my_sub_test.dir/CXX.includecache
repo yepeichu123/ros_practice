@@ -6,11 +6,37 @@
 
 #IncludeRegexTransform: 
 
+/home/xiaoc/xiaoc/code/ros_practice/devel/include/arbotix_msgs/Digital.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+std_msgs/Header.h
+-
+
 /home/xiaoc/xiaoc/code/ros_practice/src/cpp_class_communication/src/sub_head.cpp
 ros/ros.h
 -
 std_msgs/Header.h
 /home/xiaoc/xiaoc/code/ros_practice/src/cpp_class_communication/src/std_msgs/Header.h
+std_msgs/ColorRGBA.h
+/home/xiaoc/xiaoc/code/ros_practice/src/cpp_class_communication/src/std_msgs/ColorRGBA.h
+arbotix_msgs/Digital.h
+/home/xiaoc/xiaoc/code/ros_practice/src/cpp_class_communication/src/arbotix_msgs/Digital.h
+string
+-
+sstream
+-
 
 /opt/ros/kinetic/include/ros/advertise_options.h
 ros/forwards.h
@@ -657,6 +683,22 @@ ros/forwards.h
 /opt/ros/kinetic/include/ros/ros/forwards.h
 
 /opt/ros/kinetic/include/rosconsole/macros_generated.h
+
+/opt/ros/kinetic/include/std_msgs/ColorRGBA.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
 
 /opt/ros/kinetic/include/std_msgs/Header.h
 string
