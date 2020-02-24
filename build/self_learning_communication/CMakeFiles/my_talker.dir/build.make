@@ -90,6 +90,7 @@ my_talker_EXTERNAL_OBJECTS =
 
 /home/xiaoc/xiaoc/code/ros_practice/devel/lib/self_learning_communication/my_talker: self_learning_communication/CMakeFiles/my_talker.dir/src/my_talker.cpp.o
 /home/xiaoc/xiaoc/code/ros_practice/devel/lib/self_learning_communication/my_talker: self_learning_communication/CMakeFiles/my_talker.dir/build.make
+/home/xiaoc/xiaoc/code/ros_practice/devel/lib/self_learning_communication/my_talker: /opt/ros/kinetic/lib/libactionlib.so
 /home/xiaoc/xiaoc/code/ros_practice/devel/lib/self_learning_communication/my_talker: /opt/ros/kinetic/lib/libroscpp.so
 /home/xiaoc/xiaoc/code/ros_practice/devel/lib/self_learning_communication/my_talker: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
 /home/xiaoc/xiaoc/code/ros_practice/devel/lib/self_learning_communication/my_talker: /usr/lib/x86_64-linux-gnu/libboost_signals.so

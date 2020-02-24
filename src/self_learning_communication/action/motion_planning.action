@@ -1,0 +1,8 @@
+# 定义目标点
+geometry_msgs/Vector3 final
+---
+# 运行结果
+std_msgs/Bool result 
+---
+# 不断反馈进度
+std_msgs/Float64 percent

@@ -56,16 +56,6 @@ CMAKE_BINARY_DIR = /home/xiaoc/xiaoc/code/ros_practice/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -89,17 +79,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -110,6 +89,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
@@ -122,16 +112,26 @@ install/strip/fast: install/strip
 
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target install/local
-install/local/fast: install/local
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
 
-.PHONY : install/local/fast
+.PHONY : list_install_components/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -166,19 +166,34 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-self_learning_communication/CMakeFiles/my_talker.dir/rule:
-	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/my_talker.dir/rule
-.PHONY : self_learning_communication/CMakeFiles/my_talker.dir/rule
+self_learning_communication/CMakeFiles/motion_planning_server.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/motion_planning_server.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/motion_planning_server.dir/rule
 
 # Convenience name for target.
-my_talker: self_learning_communication/CMakeFiles/my_talker.dir/rule
+motion_planning_server: self_learning_communication/CMakeFiles/motion_planning_server.dir/rule
 
-.PHONY : my_talker
+.PHONY : motion_planning_server
 
 # fast build rule for target.
-my_talker/fast:
-	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/my_talker.dir/build.make self_learning_communication/CMakeFiles/my_talker.dir/build
-.PHONY : my_talker/fast
+motion_planning_server/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/motion_planning_server.dir/build.make self_learning_communication/CMakeFiles/motion_planning_server.dir/build
+.PHONY : motion_planning_server/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/pub_person_info.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/pub_person_info.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/pub_person_info.dir/rule
+
+# Convenience name for target.
+pub_person_info: self_learning_communication/CMakeFiles/pub_person_info.dir/rule
+
+.PHONY : pub_person_info
+
+# fast build rule for target.
+pub_person_info/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/pub_person_info.dir/build.make self_learning_communication/CMakeFiles/pub_person_info.dir/build
+.PHONY : pub_person_info/fast
 
 # Convenience name for target.
 self_learning_communication/CMakeFiles/my_listener.dir/rule:
@@ -194,6 +209,525 @@ my_listener: self_learning_communication/CMakeFiles/my_listener.dir/rule
 my_listener/fast:
 	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/my_listener.dir/build.make self_learning_communication/CMakeFiles/my_listener.dir/build
 .PHONY : my_listener/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/my_talker.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/my_talker.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/my_talker.dir/rule
+
+# Convenience name for target.
+my_talker: self_learning_communication/CMakeFiles/my_talker.dir/rule
+
+.PHONY : my_talker
+
+# fast build rule for target.
+my_talker/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/my_talker.dir/build.make self_learning_communication/CMakeFiles/my_talker.dir/build
+.PHONY : my_talker/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/motion_planning_client.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/motion_planning_client.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/motion_planning_client.dir/rule
+
+# Convenience name for target.
+motion_planning_client: self_learning_communication/CMakeFiles/motion_planning_client.dir/rule
+
+.PHONY : motion_planning_client
+
+# fast build rule for target.
+motion_planning_client/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/motion_planning_client.dir/build.make self_learning_communication/CMakeFiles/motion_planning_client.dir/build
+.PHONY : motion_planning_client/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_py.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_py.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_py.dir/rule
+
+# Convenience name for target.
+self_learning_communication_generate_messages_py: self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_py.dir/rule
+
+.PHONY : self_learning_communication_generate_messages_py
+
+# fast build rule for target.
+self_learning_communication_generate_messages_py/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_py.dir/build.make self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_py.dir/build
+.PHONY : self_learning_communication_generate_messages_py/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningFeedback.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningFeedback.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningFeedback.dir/rule
+
+# Convenience name for target.
+_self_learning_communication_generate_messages_check_deps_motion_planningFeedback: self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningFeedback.dir/rule
+
+.PHONY : _self_learning_communication_generate_messages_check_deps_motion_planningFeedback
+
+# fast build rule for target.
+_self_learning_communication_generate_messages_check_deps_motion_planningFeedback/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningFeedback.dir/build.make self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningFeedback.dir/build
+.PHONY : _self_learning_communication_generate_messages_check_deps_motion_planningFeedback/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningResult.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningResult.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningResult.dir/rule
+
+# Convenience name for target.
+_self_learning_communication_generate_messages_check_deps_motion_planningResult: self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningResult.dir/rule
+
+.PHONY : _self_learning_communication_generate_messages_check_deps_motion_planningResult
+
+# fast build rule for target.
+_self_learning_communication_generate_messages_check_deps_motion_planningResult/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningResult.dir/build.make self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningResult.dir/build
+.PHONY : _self_learning_communication_generate_messages_check_deps_motion_planningResult/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningGoal.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningGoal.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningGoal.dir/rule
+
+# Convenience name for target.
+_self_learning_communication_generate_messages_check_deps_motion_planningGoal: self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningGoal.dir/rule
+
+.PHONY : _self_learning_communication_generate_messages_check_deps_motion_planningGoal
+
+# fast build rule for target.
+_self_learning_communication_generate_messages_check_deps_motion_planningGoal/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningGoal.dir/build.make self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningGoal.dir/build
+.PHONY : _self_learning_communication_generate_messages_check_deps_motion_planningGoal/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/self_learning_communication_gennodejs.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/self_learning_communication_gennodejs.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/self_learning_communication_gennodejs.dir/rule
+
+# Convenience name for target.
+self_learning_communication_gennodejs: self_learning_communication/CMakeFiles/self_learning_communication_gennodejs.dir/rule
+
+.PHONY : self_learning_communication_gennodejs
+
+# fast build rule for target.
+self_learning_communication_gennodejs/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/self_learning_communication_gennodejs.dir/build.make self_learning_communication/CMakeFiles/self_learning_communication_gennodejs.dir/build
+.PHONY : self_learning_communication_gennodejs/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_person.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_person.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_person.dir/rule
+
+# Convenience name for target.
+_self_learning_communication_generate_messages_check_deps_person: self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_person.dir/rule
+
+.PHONY : _self_learning_communication_generate_messages_check_deps_person
+
+# fast build rule for target.
+_self_learning_communication_generate_messages_check_deps_person/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_person.dir/build.make self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_person.dir/build
+.PHONY : _self_learning_communication_generate_messages_check_deps_person/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_py: self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_py
+
+# fast build rule for target.
+geometry_msgs_generate_messages_py/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+.PHONY : geometry_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/self_learning_communication_generate_messages.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/self_learning_communication_generate_messages.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/self_learning_communication_generate_messages.dir/rule
+
+# Convenience name for target.
+self_learning_communication_generate_messages: self_learning_communication/CMakeFiles/self_learning_communication_generate_messages.dir/rule
+
+.PHONY : self_learning_communication_generate_messages
+
+# fast build rule for target.
+self_learning_communication_generate_messages/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/self_learning_communication_generate_messages.dir/build.make self_learning_communication/CMakeFiles/self_learning_communication_generate_messages.dir/build
+.PHONY : self_learning_communication_generate_messages/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/secret_code_service.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/secret_code_service.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/secret_code_service.dir/rule
+
+# Convenience name for target.
+secret_code_service: self_learning_communication/CMakeFiles/secret_code_service.dir/rule
+
+.PHONY : secret_code_service
+
+# fast build rule for target.
+secret_code_service/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/secret_code_service.dir/build.make self_learning_communication/CMakeFiles/secret_code_service.dir/build
+.PHONY : secret_code_service/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/self_learning_communication_genpy.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/self_learning_communication_genpy.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/self_learning_communication_genpy.dir/rule
+
+# Convenience name for target.
+self_learning_communication_genpy: self_learning_communication/CMakeFiles/self_learning_communication_genpy.dir/rule
+
+.PHONY : self_learning_communication_genpy
+
+# fast build rule for target.
+self_learning_communication_genpy/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/self_learning_communication_genpy.dir/build.make self_learning_communication/CMakeFiles/self_learning_communication_genpy.dir/build
+.PHONY : self_learning_communication_genpy/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionGoal.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionGoal.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionGoal.dir/rule
+
+# Convenience name for target.
+_self_learning_communication_generate_messages_check_deps_motion_planningActionGoal: self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionGoal.dir/rule
+
+.PHONY : _self_learning_communication_generate_messages_check_deps_motion_planningActionGoal
+
+# fast build rule for target.
+_self_learning_communication_generate_messages_check_deps_motion_planningActionGoal/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionGoal.dir/build.make self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionGoal.dir/build
+.PHONY : _self_learning_communication_generate_messages_check_deps_motion_planningActionGoal/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionFeedback.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionFeedback.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionFeedback.dir/rule
+
+# Convenience name for target.
+_self_learning_communication_generate_messages_check_deps_motion_planningActionFeedback: self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionFeedback.dir/rule
+
+.PHONY : _self_learning_communication_generate_messages_check_deps_motion_planningActionFeedback
+
+# fast build rule for target.
+_self_learning_communication_generate_messages_check_deps_motion_planningActionFeedback/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionFeedback.dir/build.make self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionFeedback.dir/build
+.PHONY : _self_learning_communication_generate_messages_check_deps_motion_planningActionFeedback/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/self_learning_communication_geneus.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/self_learning_communication_geneus.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/self_learning_communication_geneus.dir/rule
+
+# Convenience name for target.
+self_learning_communication_geneus: self_learning_communication/CMakeFiles/self_learning_communication_geneus.dir/rule
+
+.PHONY : self_learning_communication_geneus
+
+# fast build rule for target.
+self_learning_communication_geneus/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/self_learning_communication_geneus.dir/build.make self_learning_communication/CMakeFiles/self_learning_communication_geneus.dir/build
+.PHONY : self_learning_communication_geneus/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningAction.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningAction.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningAction.dir/rule
+
+# Convenience name for target.
+_self_learning_communication_generate_messages_check_deps_motion_planningAction: self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningAction.dir/rule
+
+.PHONY : _self_learning_communication_generate_messages_check_deps_motion_planningAction
+
+# fast build rule for target.
+_self_learning_communication_generate_messages_check_deps_motion_planningAction/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningAction.dir/build.make self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningAction.dir/build
+.PHONY : _self_learning_communication_generate_messages_check_deps_motion_planningAction/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_cpp: self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_cpp
+
+# fast build rule for target.
+geometry_msgs_generate_messages_cpp/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+.PHONY : geometry_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_eus: self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_eus
+
+# fast build rule for target.
+geometry_msgs_generate_messages_eus/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
+.PHONY : geometry_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_lisp: self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_lisp
+
+# fast build rule for target.
+geometry_msgs_generate_messages_lisp/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
+.PHONY : geometry_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_nodejs.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_nodejs.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+self_learning_communication_generate_messages_nodejs: self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_nodejs.dir/rule
+
+.PHONY : self_learning_communication_generate_messages_nodejs
+
+# fast build rule for target.
+self_learning_communication_generate_messages_nodejs/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_nodejs.dir/build.make self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_nodejs.dir/build
+.PHONY : self_learning_communication_generate_messages_nodejs/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_lisp.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_lisp.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+self_learning_communication_generate_messages_lisp: self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_lisp.dir/rule
+
+.PHONY : self_learning_communication_generate_messages_lisp
+
+# fast build rule for target.
+self_learning_communication_generate_messages_lisp/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_lisp.dir/build.make self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_lisp.dir/build
+.PHONY : self_learning_communication_generate_messages_lisp/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_nodejs: self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+geometry_msgs_generate_messages_nodejs/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make self_learning_communication/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
+.PHONY : geometry_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/self_learning_communication_gencpp.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/self_learning_communication_gencpp.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/self_learning_communication_gencpp.dir/rule
+
+# Convenience name for target.
+self_learning_communication_gencpp: self_learning_communication/CMakeFiles/self_learning_communication_gencpp.dir/rule
+
+.PHONY : self_learning_communication_gencpp
+
+# fast build rule for target.
+self_learning_communication_gencpp/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/self_learning_communication_gencpp.dir/build.make self_learning_communication/CMakeFiles/self_learning_communication_gencpp.dir/build
+.PHONY : self_learning_communication_gencpp/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/sub_person_info.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/sub_person_info.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/sub_person_info.dir/rule
+
+# Convenience name for target.
+sub_person_info: self_learning_communication/CMakeFiles/sub_person_info.dir/rule
+
+.PHONY : sub_person_info
+
+# fast build rule for target.
+sub_person_info/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/sub_person_info.dir/build.make self_learning_communication/CMakeFiles/sub_person_info.dir/build
+.PHONY : sub_person_info/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionResult.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionResult.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionResult.dir/rule
+
+# Convenience name for target.
+_self_learning_communication_generate_messages_check_deps_motion_planningActionResult: self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionResult.dir/rule
+
+.PHONY : _self_learning_communication_generate_messages_check_deps_motion_planningActionResult
+
+# fast build rule for target.
+_self_learning_communication_generate_messages_check_deps_motion_planningActionResult/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionResult.dir/build.make self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_motion_planningActionResult.dir/build
+.PHONY : _self_learning_communication_generate_messages_check_deps_motion_planningActionResult/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_secret_code.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_secret_code.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_secret_code.dir/rule
+
+# Convenience name for target.
+_self_learning_communication_generate_messages_check_deps_secret_code: self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_secret_code.dir/rule
+
+.PHONY : _self_learning_communication_generate_messages_check_deps_secret_code
+
+# fast build rule for target.
+_self_learning_communication_generate_messages_check_deps_secret_code/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_secret_code.dir/build.make self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_secret_code.dir/build
+.PHONY : _self_learning_communication_generate_messages_check_deps_secret_code/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_pose.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_pose.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_pose.dir/rule
+
+# Convenience name for target.
+_self_learning_communication_generate_messages_check_deps_pose: self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_pose.dir/rule
+
+.PHONY : _self_learning_communication_generate_messages_check_deps_pose
+
+# fast build rule for target.
+_self_learning_communication_generate_messages_check_deps_pose/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_pose.dir/build.make self_learning_communication/CMakeFiles/_self_learning_communication_generate_messages_check_deps_pose.dir/build
+.PHONY : _self_learning_communication_generate_messages_check_deps_pose/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/secret_code_client.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/secret_code_client.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/secret_code_client.dir/rule
+
+# Convenience name for target.
+secret_code_client: self_learning_communication/CMakeFiles/secret_code_client.dir/rule
+
+.PHONY : secret_code_client
+
+# fast build rule for target.
+secret_code_client/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/secret_code_client.dir/build.make self_learning_communication/CMakeFiles/secret_code_client.dir/build
+.PHONY : secret_code_client/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/self_learning_communication_genlisp.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/self_learning_communication_genlisp.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/self_learning_communication_genlisp.dir/rule
+
+# Convenience name for target.
+self_learning_communication_genlisp: self_learning_communication/CMakeFiles/self_learning_communication_genlisp.dir/rule
+
+.PHONY : self_learning_communication_genlisp
+
+# fast build rule for target.
+self_learning_communication_genlisp/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/self_learning_communication_genlisp.dir/build.make self_learning_communication/CMakeFiles/self_learning_communication_genlisp.dir/build
+.PHONY : self_learning_communication_genlisp/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_cpp.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_cpp.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+self_learning_communication_generate_messages_cpp: self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_cpp.dir/rule
+
+.PHONY : self_learning_communication_generate_messages_cpp
+
+# fast build rule for target.
+self_learning_communication_generate_messages_cpp/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_cpp.dir/build.make self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_cpp.dir/build
+.PHONY : self_learning_communication_generate_messages_cpp/fast
+
+# Convenience name for target.
+self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_eus.dir/rule:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f CMakeFiles/Makefile2 self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_eus.dir/rule
+.PHONY : self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+self_learning_communication_generate_messages_eus: self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_eus.dir/rule
+
+.PHONY : self_learning_communication_generate_messages_eus
+
+# fast build rule for target.
+self_learning_communication_generate_messages_eus/fast:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_eus.dir/build.make self_learning_communication/CMakeFiles/self_learning_communication_generate_messages_eus.dir/build
+.PHONY : self_learning_communication_generate_messages_eus/fast
+
+src/motion_planning_client.o: src/motion_planning_client.cpp.o
+
+.PHONY : src/motion_planning_client.o
+
+# target to build an object file
+src/motion_planning_client.cpp.o:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/motion_planning_client.dir/build.make self_learning_communication/CMakeFiles/motion_planning_client.dir/src/motion_planning_client.cpp.o
+.PHONY : src/motion_planning_client.cpp.o
+
+src/motion_planning_client.i: src/motion_planning_client.cpp.i
+
+.PHONY : src/motion_planning_client.i
+
+# target to preprocess a source file
+src/motion_planning_client.cpp.i:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/motion_planning_client.dir/build.make self_learning_communication/CMakeFiles/motion_planning_client.dir/src/motion_planning_client.cpp.i
+.PHONY : src/motion_planning_client.cpp.i
+
+src/motion_planning_client.s: src/motion_planning_client.cpp.s
+
+.PHONY : src/motion_planning_client.s
+
+# target to generate assembly for a file
+src/motion_planning_client.cpp.s:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/motion_planning_client.dir/build.make self_learning_communication/CMakeFiles/motion_planning_client.dir/src/motion_planning_client.cpp.s
+.PHONY : src/motion_planning_client.cpp.s
+
+src/motion_planning_server.o: src/motion_planning_server.cpp.o
+
+.PHONY : src/motion_planning_server.o
+
+# target to build an object file
+src/motion_planning_server.cpp.o:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/motion_planning_server.dir/build.make self_learning_communication/CMakeFiles/motion_planning_server.dir/src/motion_planning_server.cpp.o
+.PHONY : src/motion_planning_server.cpp.o
+
+src/motion_planning_server.i: src/motion_planning_server.cpp.i
+
+.PHONY : src/motion_planning_server.i
+
+# target to preprocess a source file
+src/motion_planning_server.cpp.i:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/motion_planning_server.dir/build.make self_learning_communication/CMakeFiles/motion_planning_server.dir/src/motion_planning_server.cpp.i
+.PHONY : src/motion_planning_server.cpp.i
+
+src/motion_planning_server.s: src/motion_planning_server.cpp.s
+
+.PHONY : src/motion_planning_server.s
+
+# target to generate assembly for a file
+src/motion_planning_server.cpp.s:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/motion_planning_server.dir/build.make self_learning_communication/CMakeFiles/motion_planning_server.dir/src/motion_planning_server.cpp.s
+.PHONY : src/motion_planning_server.cpp.s
 
 src/my_listener.o: src/my_listener.cpp.o
 
@@ -249,27 +783,185 @@ src/my_talker.cpp.s:
 	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/my_talker.dir/build.make self_learning_communication/CMakeFiles/my_talker.dir/src/my_talker.cpp.s
 .PHONY : src/my_talker.cpp.s
 
+src/pub_person_info.o: src/pub_person_info.cpp.o
+
+.PHONY : src/pub_person_info.o
+
+# target to build an object file
+src/pub_person_info.cpp.o:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/pub_person_info.dir/build.make self_learning_communication/CMakeFiles/pub_person_info.dir/src/pub_person_info.cpp.o
+.PHONY : src/pub_person_info.cpp.o
+
+src/pub_person_info.i: src/pub_person_info.cpp.i
+
+.PHONY : src/pub_person_info.i
+
+# target to preprocess a source file
+src/pub_person_info.cpp.i:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/pub_person_info.dir/build.make self_learning_communication/CMakeFiles/pub_person_info.dir/src/pub_person_info.cpp.i
+.PHONY : src/pub_person_info.cpp.i
+
+src/pub_person_info.s: src/pub_person_info.cpp.s
+
+.PHONY : src/pub_person_info.s
+
+# target to generate assembly for a file
+src/pub_person_info.cpp.s:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/pub_person_info.dir/build.make self_learning_communication/CMakeFiles/pub_person_info.dir/src/pub_person_info.cpp.s
+.PHONY : src/pub_person_info.cpp.s
+
+src/secret_code_client.o: src/secret_code_client.cpp.o
+
+.PHONY : src/secret_code_client.o
+
+# target to build an object file
+src/secret_code_client.cpp.o:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/secret_code_client.dir/build.make self_learning_communication/CMakeFiles/secret_code_client.dir/src/secret_code_client.cpp.o
+.PHONY : src/secret_code_client.cpp.o
+
+src/secret_code_client.i: src/secret_code_client.cpp.i
+
+.PHONY : src/secret_code_client.i
+
+# target to preprocess a source file
+src/secret_code_client.cpp.i:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/secret_code_client.dir/build.make self_learning_communication/CMakeFiles/secret_code_client.dir/src/secret_code_client.cpp.i
+.PHONY : src/secret_code_client.cpp.i
+
+src/secret_code_client.s: src/secret_code_client.cpp.s
+
+.PHONY : src/secret_code_client.s
+
+# target to generate assembly for a file
+src/secret_code_client.cpp.s:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/secret_code_client.dir/build.make self_learning_communication/CMakeFiles/secret_code_client.dir/src/secret_code_client.cpp.s
+.PHONY : src/secret_code_client.cpp.s
+
+src/secret_code_service.o: src/secret_code_service.cpp.o
+
+.PHONY : src/secret_code_service.o
+
+# target to build an object file
+src/secret_code_service.cpp.o:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/secret_code_service.dir/build.make self_learning_communication/CMakeFiles/secret_code_service.dir/src/secret_code_service.cpp.o
+.PHONY : src/secret_code_service.cpp.o
+
+src/secret_code_service.i: src/secret_code_service.cpp.i
+
+.PHONY : src/secret_code_service.i
+
+# target to preprocess a source file
+src/secret_code_service.cpp.i:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/secret_code_service.dir/build.make self_learning_communication/CMakeFiles/secret_code_service.dir/src/secret_code_service.cpp.i
+.PHONY : src/secret_code_service.cpp.i
+
+src/secret_code_service.s: src/secret_code_service.cpp.s
+
+.PHONY : src/secret_code_service.s
+
+# target to generate assembly for a file
+src/secret_code_service.cpp.s:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/secret_code_service.dir/build.make self_learning_communication/CMakeFiles/secret_code_service.dir/src/secret_code_service.cpp.s
+.PHONY : src/secret_code_service.cpp.s
+
+src/sub_person_info.o: src/sub_person_info.cpp.o
+
+.PHONY : src/sub_person_info.o
+
+# target to build an object file
+src/sub_person_info.cpp.o:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/sub_person_info.dir/build.make self_learning_communication/CMakeFiles/sub_person_info.dir/src/sub_person_info.cpp.o
+.PHONY : src/sub_person_info.cpp.o
+
+src/sub_person_info.i: src/sub_person_info.cpp.i
+
+.PHONY : src/sub_person_info.i
+
+# target to preprocess a source file
+src/sub_person_info.cpp.i:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/sub_person_info.dir/build.make self_learning_communication/CMakeFiles/sub_person_info.dir/src/sub_person_info.cpp.i
+.PHONY : src/sub_person_info.cpp.i
+
+src/sub_person_info.s: src/sub_person_info.cpp.s
+
+.PHONY : src/sub_person_info.s
+
+# target to generate assembly for a file
+src/sub_person_info.cpp.s:
+	cd /home/xiaoc/xiaoc/code/ros_practice/build && $(MAKE) -f self_learning_communication/CMakeFiles/sub_person_info.dir/build.make self_learning_communication/CMakeFiles/sub_person_info.dir/src/sub_person_info.cpp.s
+.PHONY : src/sub_person_info.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... list_install_components"
 	@echo "... install"
 	@echo "... rebuild_cache"
-	@echo "... test"
-	@echo "... my_talker"
 	@echo "... edit_cache"
-	@echo "... my_listener"
-	@echo "... install/strip"
 	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... motion_planning_server"
+	@echo "... pub_person_info"
+	@echo "... my_listener"
+	@echo "... my_talker"
+	@echo "... motion_planning_client"
+	@echo "... self_learning_communication_generate_messages_py"
+	@echo "... _self_learning_communication_generate_messages_check_deps_motion_planningFeedback"
+	@echo "... list_install_components"
+	@echo "... _self_learning_communication_generate_messages_check_deps_motion_planningResult"
+	@echo "... _self_learning_communication_generate_messages_check_deps_motion_planningGoal"
+	@echo "... self_learning_communication_gennodejs"
+	@echo "... _self_learning_communication_generate_messages_check_deps_person"
+	@echo "... geometry_msgs_generate_messages_py"
+	@echo "... self_learning_communication_generate_messages"
+	@echo "... test"
+	@echo "... secret_code_service"
+	@echo "... self_learning_communication_genpy"
+	@echo "... _self_learning_communication_generate_messages_check_deps_motion_planningActionGoal"
+	@echo "... _self_learning_communication_generate_messages_check_deps_motion_planningActionFeedback"
+	@echo "... self_learning_communication_geneus"
+	@echo "... _self_learning_communication_generate_messages_check_deps_motion_planningAction"
+	@echo "... geometry_msgs_generate_messages_cpp"
+	@echo "... geometry_msgs_generate_messages_eus"
+	@echo "... geometry_msgs_generate_messages_lisp"
+	@echo "... self_learning_communication_generate_messages_nodejs"
+	@echo "... self_learning_communication_generate_messages_lisp"
+	@echo "... geometry_msgs_generate_messages_nodejs"
+	@echo "... self_learning_communication_gencpp"
+	@echo "... sub_person_info"
+	@echo "... _self_learning_communication_generate_messages_check_deps_motion_planningActionResult"
+	@echo "... _self_learning_communication_generate_messages_check_deps_secret_code"
+	@echo "... _self_learning_communication_generate_messages_check_deps_pose"
+	@echo "... secret_code_client"
+	@echo "... self_learning_communication_genlisp"
+	@echo "... self_learning_communication_generate_messages_cpp"
+	@echo "... self_learning_communication_generate_messages_eus"
+	@echo "... src/motion_planning_client.o"
+	@echo "... src/motion_planning_client.i"
+	@echo "... src/motion_planning_client.s"
+	@echo "... src/motion_planning_server.o"
+	@echo "... src/motion_planning_server.i"
+	@echo "... src/motion_planning_server.s"
 	@echo "... src/my_listener.o"
 	@echo "... src/my_listener.i"
 	@echo "... src/my_listener.s"
 	@echo "... src/my_talker.o"
 	@echo "... src/my_talker.i"
 	@echo "... src/my_talker.s"
+	@echo "... src/pub_person_info.o"
+	@echo "... src/pub_person_info.i"
+	@echo "... src/pub_person_info.s"
+	@echo "... src/secret_code_client.o"
+	@echo "... src/secret_code_client.i"
+	@echo "... src/secret_code_client.s"
+	@echo "... src/secret_code_service.o"
+	@echo "... src/secret_code_service.i"
+	@echo "... src/secret_code_service.s"
+	@echo "... src/sub_person_info.o"
+	@echo "... src/sub_person_info.i"
+	@echo "... src/sub_person_info.s"
 .PHONY : help
 
 

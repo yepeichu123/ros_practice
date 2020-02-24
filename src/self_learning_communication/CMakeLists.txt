@@ -11,6 +11,10 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
   arbotix_msgs
+  message_generation
+  geometry_msgs
+  actionlib_msgs
+  actionlib 
 )
 
 ## System dependencies are found with CMake's conventions
@@ -47,31 +51,34 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
+add_message_files(
+  FILES
+  pose.msg
+  person.msg
 #   Message1.msg
 #   Message2.msg
-# )
+)
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
+add_service_files(
+  FILES
+  secret_code.srv
 #   Service1.srv
 #   Service2.srv
-# )
+)
 
 ## Generate actions in the 'action' folder
-# add_action_files(
-#   FILES
+add_action_files(
+  FILES
+  motion_planning.action
 #   Action1.action
 #   Action2.action
-# )
+)
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+generate_messages(
+  DEPENDENCIES geometry_msgs std_msgs actionlib_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -103,6 +110,10 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
+  CATKIN_DEPENDS 
+  message_runtime
+#  std_msgs
+ # geometry_msgs
 #  INCLUDE_DIRS include
 #  LIBRARIES self_learning_communication
 #  CATKIN_DEPENDS roscpp std_msgs
@@ -155,6 +166,28 @@ target_link_libraries(my_talker ${catkin_LIBRARIES})
 
 add_executable(my_listener src/my_listener.cpp)
 target_link_libraries(my_listener ${catkin_LIBRARIES})
+
+add_executable(pub_person_info src/pub_person_info.cpp)
+target_link_libraries(pub_person_info ${catkin_LIBRARIES})
+
+add_executable(sub_person_info src/sub_person_info.cpp)
+target_link_libraries(sub_person_info ${catkin_LIBRARIES})
+
+add_executable(secret_code_service src/secret_code_service.cpp)
+target_link_libraries(secret_code_service ${catkin_LIBRARIES})
+add_dependencies(secret_code_service ${PROJECT_NAME}_gencpp)
+
+add_executable(secret_code_client src/secret_code_client.cpp)
+target_link_libraries(secret_code_client ${catkin_LIBRARIES})
+add_dependencies(secret_code_client ${PROJECT_NAME}_gencpp)
+
+add_executable(motion_planning_server src/motion_planning_server.cpp)
+target_link_libraries(motion_planning_server ${catkin_LIBRARIES})
+add_dependencies(motion_planning_server ${${PROJECT_NAME}_EXPORTED_TARGETS})
+
+add_executable(motion_planning_client src/motion_planning_client.cpp)
+target_link_libraries(motion_planning_client ${catkin_LIBRARIES})
+add_dependencies(motion_planning_client ${${PROJECT_NAME}_EXPORTED_TARGETS})
 
 #############
 ## Install ##
