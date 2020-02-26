@@ -1,0 +1,9 @@
+<launch>
+
+    <include file="$(find self_learning_communication)/launch/turtle.launch" />
+
+    <node pkg="self_learning_communication" type="my_talker" name="talker" />
+
+    <node pkg="self_learning_communication" type="my_listener" name="listener" output="screen" />
+
+</launch>

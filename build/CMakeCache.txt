@@ -387,7 +387,10 @@ learning_communication_BINARY_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/bui
 learning_communication_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/src/learning_communication
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/kinetic/lib/libactionlib.so
+lib:FILEPATH=/opt/ros/kinetic/lib/libtf2.so
+
+//The directory containing a CMake configuration file for message_filters.
+message_filters_DIR:PATH=/opt/ros/kinetic/share/message_filters/cmake
 
 //The directory containing a CMake configuration file for message_generation.
 message_generation_DIR:PATH=/opt/ros/kinetic/share/message_generation/cmake
@@ -407,6 +410,9 @@ roscpp_serialization_DIR:PATH=/opt/ros/kinetic/share/roscpp_serialization/cmake
 //The directory containing a CMake configuration file for roscpp_traits.
 roscpp_traits_DIR:PATH=/opt/ros/kinetic/share/roscpp_traits/cmake
 
+//The directory containing a CMake configuration file for rosgraph.
+rosgraph_DIR:PATH=/opt/ros/kinetic/share/rosgraph/cmake
+
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/kinetic/share/rosgraph_msgs/cmake
 
@@ -422,8 +428,44 @@ self_learning_communication_BINARY_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practic
 //Value Computed by CMake
 self_learning_communication_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/src/self_learning_communication
 
+//The directory containing a CMake configuration file for sensor_msgs.
+sensor_msgs_DIR:PATH=/opt/ros/kinetic/share/sensor_msgs/cmake
+
+//Value Computed by CMake
+spawn_turtle_BINARY_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/build/spawn_turtle
+
+//Value Computed by CMake
+spawn_turtle_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/src/spawn_turtle
+
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/kinetic/share/std_msgs/cmake
+
+//The directory containing a CMake configuration file for std_srvs.
+std_srvs_DIR:PATH=/opt/ros/kinetic/share/std_srvs/cmake
+
+//The directory containing a CMake configuration file for tf2.
+tf2_DIR:PATH=/opt/ros/kinetic/share/tf2/cmake
+
+//The directory containing a CMake configuration file for tf2_msgs.
+tf2_msgs_DIR:PATH=/opt/ros/kinetic/share/tf2_msgs/cmake
+
+//The directory containing a CMake configuration file for tf2_py.
+tf2_py_DIR:PATH=/opt/ros/kinetic/share/tf2_py/cmake
+
+//The directory containing a CMake configuration file for tf2_ros.
+tf2_ros_DIR:PATH=/opt/ros/kinetic/share/tf2_ros/cmake
+
+//The directory containing a CMake configuration file for tf.
+tf_DIR:PATH=/opt/ros/kinetic/share/tf/cmake
+
+//Value Computed by CMake
+tf_transform_BINARY_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/build/tf_transform
+
+//Value Computed by CMake
+tf_transform_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/src/tf_transform
+
+//The directory containing a CMake configuration file for turtlesim.
+turtlesim_DIR:PATH=/opt/ros/kinetic/share/turtlesim/cmake
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/kinetic/share/xmlrpcpp/cmake
@@ -532,7 +574,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=12
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=14
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

@@ -1,0 +1,9 @@
+<launch>
+
+    <node pkg="turtlesim" type="turtlesim_node" name="sim" />
+
+    <node pkg="spawn_turtle" type="spawn_turtle" name="spawn_turtle" />
+
+    <node pkg="spawn_turtle" type="sub_turtle_pose" name="sub_pose" output="screen" />
+
+</launch>

@@ -135,6 +135,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/xiaoc/xiaoc/code/ros_practice/build/cpp_class_communication/cmake_install.cmake")
   include("/home/xiaoc/xiaoc/code/ros_practice/build/learning_communication/cmake_install.cmake")
   include("/home/xiaoc/xiaoc/code/ros_practice/build/self_learning_communication/cmake_install.cmake")
+  include("/home/xiaoc/xiaoc/code/ros_practice/build/spawn_turtle/cmake_install.cmake")
+  include("/home/xiaoc/xiaoc/code/ros_practice/build/tf_transform/cmake_install.cmake")
 
 endif()
 
