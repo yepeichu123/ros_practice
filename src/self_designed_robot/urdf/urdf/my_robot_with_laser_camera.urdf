@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<robot name="my_robot">
+
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.16" radius="0.20" />
+            </geometry>
+            <material name="blue" >
+                <color rgba="0 0 1 1" />
+            </material>
+        </visual>
+    </link>
+
+    <joint name="left_wheel_joint" type="continuous">
+        <origin xyz="0 0.19 -0.07" ryp="0 1 0" />
+        <parent link="base_link" />
+        <child link="left_wheel_link" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <link name="left_wheel_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="1.5708 0 0" />
+            <geometry>
+                <cylinder length="0.05" radius="0.05" />
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 0.95" />
+            </material>
+        </visual>
+    </link>
+
+    <joint name="right_wheel_joint" type="continuous">
+        <origin xyz="0 -0.19 -0.07" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="right_wheel_link" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <link name="right_wheel_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="1.5708 0 0" />
+            <geometry>
+                <cylinder length="0.05" radius="0.05" />
+            </geometry> 
+            <material name="black">
+                <color rgba="0 0 0 0.95" />
+            </material>
+        </visual>
+    </link>
+
+    <joint name="front_caster_joint" type="continuous">
+        <origin xyz="0.19 0 -0.10" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="front_caster_link" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <link name="front_caster_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.02" />
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 0.95" />
+            </material>
+        </visual>
+    </link>
+
+    <joint name="back_caster_joint" type="continuous">
+        <origin xyz="-0.19 0 -0.10" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="back_caster_link" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <link name="back_caster_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.02" />
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 0.95" />
+            </material>
+        </visual>
+    </link>
+
+
+    <link name="base_link_l2">
+        <visual>
+            <origin xyz="0 0 0" origin="0 0 0" />
+            <geometry>
+                <cylinder length="0.03" radius="0.20" />
+            </geometry>
+            <material name="blue">
+                <color rgba="0 0 1 1" />
+            </material>
+        </visual>
+    </link>
+
+    <joint name="left_front_l2_joint" type="fixed">
+        <origin xyz="0.12 0.12 0.08" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="left_front_l2_link" />
+    </joint>
+    <joint name="l2_to_left_front_l2_joint" type="fixed">
+        <origin xyz="-0.12 -0.12 0.15" rpy="0 0 0" />
+        <parent link="left_front_l2_link" />
+        <child link="base_link_l2" />
+    </joint>    
+    <link name="left_front_l2_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.3" radius="0.01" />
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 0.95" />
+            </material>
+        </visual>
+    </link>
+
+    <joint name="right_front_l2_joint" type="fixed">
+        <origin xyz="0.12 -0.12 0.08" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="right_front_l2_link" />
+    </joint>
+    <link name="right_front_l2_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.3" radius="0.01" />
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 0.95" />
+            </material>
+        </visual>
+    </link>
+
+     <joint name="left_back_l2_joint" type="fixed">
+        <origin xyz="-0.12 0.12 0.08" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="left_back_l2_link" />
+    </joint>
+    <link name="left_back_l2_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.3" radius="0.01" />
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 0.95" />
+            </material>
+        </visual>
+    </link>
+
+    <joint name="right_back_l2_joint" type="fixed">
+        <origin xyz="-0.12 -0.12 0.08" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="right_back_l2_link" />
+    </joint>
+    <link name="right_back_l2_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.3" radius="0.01" />
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 0.95" />
+            </material>
+        </visual>
+    </link>
+
+    <!-- laser -->
+    <joint name="laser_to_base_link_l2" type="fixed">
+        <origin xyz="0 0 0.04" rpy="0 0 0" />
+        <parent link="base_link_l2" />
+        <child link="laser_link" />
+    </joint>
+    <link name="laser_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.05" radius="0.05" />
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1" />
+            </material>
+        </visual>
+    </link>
+
+    <!-- camera -->
+    <joint name="camera_to_base_link_l2" type="fixed">
+        <origin xyz="0.16 0 0.1" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="camera_link" />
+    </joint>
+    <link name="camera_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.04 0.08 0.04" />
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1" />
+            </material>
+        </visual>
+    </link>
+
+</robot>

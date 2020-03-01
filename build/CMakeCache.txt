@@ -319,6 +319,9 @@ cpp_class_communication_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/sr
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/kinetic/share/cpp_common/cmake
 
+//The directory containing a CMake configuration file for dynamic_reconfigure.
+dynamic_reconfigure_DIR:PATH=/opt/ros/kinetic/share/dynamic_reconfigure/cmake
+
 //The directory containing a CMake configuration file for gencpp.
 gencpp_DIR:PATH=/opt/ros/kinetic/share/gencpp/cmake
 
@@ -387,7 +390,13 @@ learning_communication_BINARY_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/bui
 learning_communication_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/src/learning_communication
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/kinetic/lib/libtf2.so
+lib:FILEPATH=/opt/ros/kinetic/lib/libxmlrpcpp.so
+
+//Value Computed by CMake
+mbot_description_BINARY_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/build/mbot_description
+
+//Value Computed by CMake
+mbot_description_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/src/mbot_description
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/kinetic/share/message_filters/cmake
@@ -398,8 +407,59 @@ message_generation_DIR:PATH=/opt/ros/kinetic/share/message_generation/cmake
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/kinetic/share/message_runtime/cmake
 
+//Value Computed by CMake
+rbx1_BINARY_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/build/rbx1/rbx1
+
+//Value Computed by CMake
+rbx1_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/src/rbx1/rbx1
+
+//Value Computed by CMake
+rbx1_apps_BINARY_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/build/rbx1/rbx1_apps
+
+//Value Computed by CMake
+rbx1_apps_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/src/rbx1/rbx1_apps
+
+//Value Computed by CMake
+rbx1_bringup_BINARY_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/build/rbx1/rbx1_bringup
+
+//Value Computed by CMake
+rbx1_bringup_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/src/rbx1/rbx1_bringup
+
+//Value Computed by CMake
+rbx1_description_BINARY_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/build/rbx1/rbx1_description
+
+//Value Computed by CMake
+rbx1_description_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/src/rbx1/rbx1_description
+
+//Value Computed by CMake
+rbx1_dynamixels_BINARY_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/build/rbx1/rbx1_dynamixels
+
+//Value Computed by CMake
+rbx1_dynamixels_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/src/rbx1/rbx1_dynamixels
+
+//Value Computed by CMake
+rbx1_nav_BINARY_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/build/rbx1/rbx1_nav
+
+//Value Computed by CMake
+rbx1_nav_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/src/rbx1/rbx1_nav
+
+//Value Computed by CMake
+rbx1_speech_BINARY_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/build/rbx1/rbx1_speech
+
+//Value Computed by CMake
+rbx1_speech_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/src/rbx1/rbx1_speech
+
+//Value Computed by CMake
+rbx1_vision_BINARY_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/build/rbx1/rbx1_vision
+
+//Value Computed by CMake
+rbx1_vision_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/src/rbx1/rbx1_vision
+
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/kinetic/share/rosconsole/cmake
+
+//The directory containing a CMake configuration file for rosconsole_bridge.
+rosconsole_bridge_DIR:PATH=/opt/ros/kinetic/share/rosconsole_bridge/cmake
 
 //The directory containing a CMake configuration file for roscpp.
 roscpp_DIR:PATH=/opt/ros/kinetic/share/roscpp/cmake
@@ -423,6 +483,12 @@ rospy_DIR:PATH=/opt/ros/kinetic/share/rospy/cmake
 rostime_DIR:PATH=/opt/ros/kinetic/share/rostime/cmake
 
 //Value Computed by CMake
+self_designed_robot_BINARY_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/build/self_designed_robot
+
+//Value Computed by CMake
+self_designed_robot_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/src/self_designed_robot
+
+//Value Computed by CMake
 self_learning_communication_BINARY_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/build/self_learning_communication
 
 //Value Computed by CMake
@@ -442,6 +508,12 @@ std_msgs_DIR:PATH=/opt/ros/kinetic/share/std_msgs/cmake
 
 //The directory containing a CMake configuration file for std_srvs.
 std_srvs_DIR:PATH=/opt/ros/kinetic/share/std_srvs/cmake
+
+//Value Computed by CMake
+teleop_twist_keyboard_BINARY_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/build/teleop_twist_keyboard
+
+//Value Computed by CMake
+teleop_twist_keyboard_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/src/teleop_twist_keyboard
 
 //The directory containing a CMake configuration file for tf2.
 tf2_DIR:PATH=/opt/ros/kinetic/share/tf2/cmake
@@ -466,6 +538,12 @@ tf_transform_SOURCE_DIR:STATIC=/home/xiaoc/xiaoc/code/ros_practice/src/tf_transf
 
 //The directory containing a CMake configuration file for turtlesim.
 turtlesim_DIR:PATH=/opt/ros/kinetic/share/turtlesim/cmake
+
+//The directory containing a CMake configuration file for urdf.
+urdf_DIR:PATH=/opt/ros/kinetic/share/urdf/cmake
+
+//The directory containing a CMake configuration file for xacro.
+xacro_DIR:PATH=/opt/ros/kinetic/share/xacro/cmake
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/kinetic/share/xmlrpcpp/cmake
@@ -574,7 +652,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=14
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=25
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

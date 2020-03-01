@@ -1,0 +1,13 @@
+<launch>
+
+  <arg name="model" default="$(find xacro)/xacro --inorder '$(find self_designed_robot)/urdf/xacro/use_robot_2f.xacro'" />
+  <arg name="gui" default="true" />
+
+  <param name="robot_description" command="$(arg model)" />
+  <param name="use_gui" value="$(arg gui)"/>
+
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find self_designed_robot)/config/xacro/use_robot_2f.rviz" required="true" />
+
+</launch>

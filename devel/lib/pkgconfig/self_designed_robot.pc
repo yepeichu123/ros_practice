@@ -1,0 +1,8 @@
+prefix=/home/xiaoc/xiaoc/code/ros_practice/devel
+
+Name: self_designed_robot
+Description: Description of self_designed_robot
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
