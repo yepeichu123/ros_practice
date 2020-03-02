@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find self_designed_robot)/urdf/gazebo/my_robot_gazebo.xacro" />
+    <xacro:include filename="$(find self_designed_robot)/urdf/gazebo/camera_gazebo.xacro" />
+    
+    <xacro:property name="camera_offset_x" value="0.17" />
+    <xacro:property name="camera_offset_y" value="0.0" />
+    <xacro:property name="camera_offset_z" value="0.1" />
+
+    <joint name="camera_joint" type="fixed">
+        <origin xyz="${camera_offset_x} ${camera_offset_y} ${camera_offset_z}" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="camera_link" />
+    </joint>
+
+    <xacro:use_camera prefix="camera" />
+    <my_robot_base_gazebo/>
+
+</robot>
